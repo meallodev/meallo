@@ -1,0 +1,25 @@
+# Ignore Python virtual environment
+venv/
+.env
+
+# Ignore compiled Python files
+__pycache__/
+*.pyc
+*.pyo
+
+# Ignore logs and database files
+*.log
+*.sqlite3
+
+# Ignore environment settings
+.env
+.env.local
+*.config
+
+# Ignore dependency folders
+*.egg-info/
+pip-log.txt
+
+# Ignore VSCode and PyCharm files
+.vscode/
+.idea/
