@@ -1,26 +1,25 @@
-"use client"
-import React from "react";
+"use client";
 import { QRCodeCanvas } from "qrcode.react";
-import { useNavigate } from "react-router-dom";
+import { useRouter } from "next/navigation";
 
-const QRCodeGenerator = ({ url }) => {
-//   const navigate = useNavigate();
+export default function QRCodeGenerator() {
+  const router = useRouter();
+  const formURL = `${window.location.origin}/form`; // Next.js route
 
   const handleRedirect = () => {
-    // navigate(url);
-    console.log("clicked")
+    router.push("/form");
   };
 
   return (
-    <div style={{ textAlign: "center" }}>
-      <h2>Scan this QR Code</h2>
-      <QRCodeCanvas value={window.location.origin + url} size={200} />
-      <br />
-      <button onClick={handleRedirect} style={{ marginTop: "20px" }}>
-        Go to Page
+    <div className="flex flex-col items-center mt-10">
+      <h2 className="text-2xl font-bold">Scan this QR Code</h2>
+      <QRCodeCanvas value={formURL} size={200} className="mt-4" />
+      <button
+        onClick={handleRedirect}
+        className="mt-4 bg-blue-500 text-white p-2 rounded"
+      >
+        Go to Form
       </button>
     </div>
   );
-};
-
-export default QRCodeGenerator;
+}
